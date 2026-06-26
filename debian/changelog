@@ -1,5 +1,111 @@
-template-repository (1.0-1) unstable; urgency=medium
+lua-resty-lrucache (0.15-2) unstable; urgency=medium
 
-  * Initial release
+  * d/{control,copyright}: update my email to "janmojzis@debian.org"
+  * d/copyright: bump debian/* copyright year
+  * d/control: Maintainer Lua Team, me as uploader
+  * d/salsa-ci.yml: add
+  * d/watch: use more generic template
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Jan Mojžíš <janmojzis@debian.org>  Mon, 27 Jan 2025 07:10:16 +0100
+
+lua-resty-lrucache (0.15-1) unstable; urgency=medium
+
+  * d/gbp.conf: dist = DEP14, debian-branch = debian/latest
+  * d/copyright: bump my copyright year
+  * d/control: remove XB-Lua-Versions header
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Sat, 12 Oct 2024 21:19:44 +0200
+
+lua-resty-lrucache (0.14-1) unstable; urgency=medium
+
+  * New upstream version 0.14
+  * d/gbp.conf: switch to pristine-tar = True
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Tue, 13 Aug 2024 07:44:06 +0200
+
+lua-resty-lrucache (0.13-11) unstable; urgency=medium
+
+  * d/control: bump Standards-Version: 4.7.0, no changes
+  * d/watch: use new recommended github template
+  * d/control: replace luajit2 B-D with luajit (Closes: 1072349)
+  * d/gbp.conf: add [pull] track-missing = True
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Sat, 01 Jun 2024 16:30:06 +0200
+
+lua-resty-lrucache (0.13-10) unstable; urgency=medium
+
+  * d/copyright-scan-patterns.yml: added
+  * d/copyright: updated to be compatible with 'cme update dpkg-copyright'
+  * d/control: bump Standards-Version: 4.6.2, no changes
+  * d/gbb.conf: added, switched to debian branch main (debian-branch = main)
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Mon, 13 Feb 2023 08:16:37 +0100
+
+lua-resty-lrucache (0.13-9) unstable; urgency=medium
+
+  * d/t/control fixed test dependencies
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Fri, 25 Nov 2022 18:12:10 +0100
+
+lua-resty-lrucache (0.13-8) unstable; urgency=medium
+
+  [ Jan Mojžíš ]
+  * d/t/nginxtest cleanup, after the luajit2 library, which lua-resty-lrucache
+    depends on, has been removed on ppc64el architecture (segfaults)
+  * d/lua5.{2,3,4}.dh-lua.conf removed, lua-resty-core depends on LuaJIT2.
+    LuaJIT2 is API+ABI-compatible with Lua 5.1
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository-Browse.
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Fri, 23 Sep 2022 17:29:30 +0200
+
+lua-resty-lrucache (0.13-7) unstable; urgency=medium
+
+  * d/t/nginxtest skip tests on ppc64el
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Fri, 19 Aug 2022 19:11:52 +0200
+
+lua-resty-lrucache (0.13-6) unstable; urgency=medium
+
+  * d/t/control fixed test dependencies
+  * d/t/nginxtest updated, added check if lua http module is installed,
+    and if it is not, then the test is skipped.
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Fri, 19 Aug 2022 09:30:10 +0200
+
+lua-resty-lrucache (0.13-5) unstable; urgency=medium
+
+  * d/control: fix dependency libluajit2-5.1-dev -> libluajit2-5.1-2
+  * d/tests: marked tests as skippable and skipped test on ppc64el,
+    where the luajit2 library currently doesn't work.
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Thu, 04 Aug 2022 04:13:49 +0200
+
+lua-resty-lrucache (0.13-4) unstable; urgency=medium
+
+  * d/control added dependency on libluajit2-5.1-dev
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Tue, 02 Aug 2022 15:07:15 +0200
+
+lua-resty-lrucache (0.13-3) unstable; urgency=medium
+
+  * d/patches/0001-disable-init-by-lua-tests.patch removed
+  * d/patches/fix_test_nginx.patch removed
+  * d/tests/test updated and added functionality from removed patches above
+  * d/changelog fixed typo in ITP bug number (Closes: #1016054)
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Sun, 31 Jul 2022 08:07:06 +0200
+
+lua-resty-lrucache (0.13-2) unstable; urgency=medium
+
+  * d/copyright fix lintian globbing-patterns-out-of-order
+  * d/control fix synopsis-is-a-sentence
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Fri, 29 Jul 2022 17:43:01 +0200
+
+lua-resty-lrucache (0.13-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #1016054)
+
+ -- Jan Mojžíš <jan.mojzis@gmail.com>  Fri, 29 Jul 2022 17:35:26 +0200

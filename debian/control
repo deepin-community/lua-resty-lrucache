@@ -1,15 +1,34 @@
-Source: template-repository
-Section: unknown
+Source: lua-resty-lrucache
+Section: net
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-lua,
+Maintainer: Debian Lua Team <pkg-lua-devel@lists.alioth.debian.org>
+Uploaders:
+ Jan Mojžíš <janmojzis@debian.org>,
+Homepage: https://github.com/openresty/lua-resty-lrucache
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/lua-team/lua-resty-lrucache.git
+Vcs-Browser: https://salsa.debian.org/lua-team/lua-resty-lrucache
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: lua-resty-lrucache
+Depends:
+ libluajit-5.1-2,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Provides:
+ ${lua:Provides},
+Architecture: all
+Description: Simple LRU cache for the ngx_lua module
+ The LRU cache resides completely in the Lua VM and is subject to Lua GC.
+ As such, do not expect it to get shared across the OS process boundary.
+ The upside is that you can cache arbitrary complex Lua values (such as deep
+ nested Lua tables) without the overhead of serialization (as with ngx_lua's
+ shared dictionary API). The downside is that your cache is always limited to
+ the current OS process (i.e. the current Nginx worker process). It does not
+ really make much sense to use this library in the context of init_by_lua
+ because the cache will not get shared by any of the worker processes (unless
+ you just want to "warm up" the cache with predefined items which will
+ get inherited by the workers via fork()).

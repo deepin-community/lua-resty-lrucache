@@ -1,0 +1,7 @@
+---
+check:
+  suffixes:
+  - lua
+ignore:
+  pattern:
+  - .git
