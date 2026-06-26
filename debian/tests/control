@@ -1,0 +1,29 @@
+Tests:
+ test,
+Restrictions:
+ allow-stderr isolation-container needs-root skippable,
+Depends:
+ libalgorithm-diff-perl,
+ libclass-spiffy-perl,
+ libextutils-config-perl,
+ libextutils-helpers-perl,
+ libextutils-installpaths-perl,
+ libio-pty-perl,
+ libipc-run-perl,
+ liblist-moreutils-perl,
+ liblwp-useragent-determined-perl,
+ libmodule-build-perl,
+ libmodule-build-tiny-perl,
+ libreadonly-perl,
+ libtest-base-perl,
+ libtest-longstring-perl,
+ nginx-extras,
+ perl,
+
+Tests:
+ nginxtest,
+Restrictions:
+ allow-stderr isolation-container needs-root skippable,
+Depends:
+ curl,
+ nginx-extras,
